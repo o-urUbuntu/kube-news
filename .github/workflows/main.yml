@@ -48,7 +48,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      - name: Set kubeconfig context
       - uses: azure/k8s-set-context@v2
         with:
            method: kubeconfig
