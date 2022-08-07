@@ -12,7 +12,6 @@ spec:
       labels:
         app: postgre
     spec:
-      progressDeadlineSeconds: 2000
       containers:
         - name: postgre
           image: postgres:14.3
