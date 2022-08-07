@@ -39,7 +39,28 @@ jobs:
           push: true
           tags: |
             kls67/kube-news:latest
-            kls67/kube-news:${{github.run_number}}
+            kls67/kube-news:v${{github.run_number}}
+  
+  CD:
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set kubeconfig context
+      - uses: azure/k8s-set-context@v2
+        with:
+           method: kubeconfig
+           kubeconfig: ${{ secrets.K8S_CONFIG }}
+      - uses: Azure/k8s-deploy@v3.1
+        with:
+          images: 
+            kls67/kube-news:v${{github.run_number}}
+          manifests : |
+              k8s/deployment.yml
+              
+            
+    
           
           
           
