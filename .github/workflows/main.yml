@@ -58,6 +58,6 @@ jobs:
       - uses: Azure/k8s-deploy@v3.1
         with:
           images: 
-            kls67/kube-news:v${{github.run_number}}
+            kls67/kube-news:${{github.run_number}}
           manifests : |
               k8s/deployment.yml
