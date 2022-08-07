@@ -39,7 +39,7 @@ jobs:
           push: true
           tags: |
             kls67/kube-news:latest
-            kls67/kube-news:v${{github.run_number}}
+            kls67/kube-news:${{github.run_number}}
   
   CD:
 
